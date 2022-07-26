@@ -35,7 +35,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set HTTPS=true&&react-scripts start",
     "build": "react-scripts build",
     "build2": "set \"GENERATE_SOURCEMAP=false\" &&  react-scripts build",
     "analyze": "source-map-explorer build/static/js/*",
