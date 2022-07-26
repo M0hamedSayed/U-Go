@@ -1,1 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/*------------------------------------*\
+    $Fonts 
+\*------------------------------------*/
+@font-face {
+    font-family: DinAr;
+    src: url(./assets/fonts/URW\ DIN\ Arabic.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: DinBoldAr;
+    src: url(./assets/fonts/URW\ DIN\ Arabic\ Bold.ttf);
+    font-display: swap;
+}
+
+
+/*------------------------------------*\
+    $CUSTOM VARIABLES / Basics
+\*------------------------------------*/
+:root, body {
+    /* fonts */
+    --font: DinAr;
+    --font-bold: DinBoldAr;
+    /*transition*/
+    --transition-out: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045), padding 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    --transition-in: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-all: 0.3s all;
+    --transition-bg: 0.3s background-color;
+    --transition-color: 0.3s color;
+
+    font-family: var(--font);
+    overflow: hidden;
+}
+
+
+/*------------------------------------*\
+    $CUSTOM VARIABLES / Light Theme
+\*------------------------------------*/
+body[data-theme='light'] {
+    --primary-color: 15, 57, 59;
+    --primary-color_light: 52, 115, 98;
+    --primary-color_dark: 13, 48, 50;
+    --secondary-color: 239, 132, 81;
+    --secondary-color_light: 237, 203, 80;
+    --secondary-color_dark: 218, 99, 44;
+    --primary-toggle: 15, 57, 59;
+    --secondary-toggle: 239, 132, 81;
+    --backdrop-color: 55, 55, 55;
+    --dark-color: 55, 55, 55;
+    --white-color: 245, 243, 238;
+    --error-color: 239, 68, 68;
+    /*background color*/
+    --bg-main: 238, 235, 227;
+    --bg-white: 245, 243, 238;
+    --bg-primary: var(--primary-color);
+    --bg-primary_dark: var(--primary-color_dark);
+    --bg-primary_light: var(--primary-color_light);
+    --bg-secondary: var(--secondary-color);
+    --bg-secondary_light: var(--secondary-color_light);
+    --bg-secondary_dark: var(--secondary-color_dark);
+    /*text color*/
+    --txt-main: 107, 132, 131;
+    --txt-white: 245, 243, 238;
+    --txt-white-x: 245, 243, 238;
+    --txt-dark: 55, 55, 55;
+    --txt-primary: var(--primary-color);
+    --txt-primary_dark: var(--primary-color_dark);
+    --txt-primary_light: var(--primary-color_light);
+    --txt-secondary: var(--secondary-color);
+    --txt-secondary_light: var(--secondary-color_light);
+    --txt-secondary_dark: var(--secondary-color_dark);
+}
+
+/*------------------------------------*\
+    $CUSTOM VARIABLES / Dark Theme
+\*------------------------------------*/
+body[data-theme='dark'] {
+    --primary-color: 15, 57, 59;
+    --primary-color_light: 52, 115, 98;
+    --primary-color_dark: 13, 48, 50;
+    --secondary-color: 239, 132, 81;
+    --secondary-color_light: 237, 203, 80;
+    --secondary-color_dark: 218, 99, 44;
+    --primary-toggle: 239, 132, 81;
+    --secondary-toggle: 15, 57, 59;
+    --backdrop-color: 245, 243, 238;
+    --dark-color: 55, 55, 55;
+    --white-color: 245, 243, 238;
+    --error-color: 239, 68, 68;
+    /*background color*/
+    --bg-main: 34, 34, 34;
+    --bg-white: 55, 55, 55;
+    --bg-primary: var(--primary-color);
+    --bg-primary_dark: var(--primary-color_dark);
+    --bg-primary_light: var(--primary-color_light);
+    --bg-secondary: var(--secondary-color);
+    --bg-secondary_light: var(--secondary-color_light);
+    --bg-secondary_dark: var(--secondary-color_dark);
+    /*text color*/
+    --txt-main: 107, 132, 131;
+    --txt-white: 245, 243, 238;
+    --txt-white-x: 55, 55, 55;
+    --txt-dark: 245, 243, 238;
+    --txt-primary: var(--primary-color);
+    --txt-primary_dark: var(--primary-color_dark);
+    --txt-primary_light: var(--primary-color_light);
+    --txt-secondary: var(--secondary-color);
+    --txt-secondary_light: var(--secondary-color_light);
+    --txt-secondary_dark: var(--secondary-color_dark);
+}
+
+/*------------------------------------*\
+    $Scrollbar
+\*------------------------------------*/
+::-webkit-scrollbar-track {
+    margin-top: 20px;
+    box-shadow: inset 0 0 6px var(--backdrop-color);
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar {
+    margin-top: 20px;
+    width: 6px;
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: rgba(var(--primary-color_light), 1);
+}
