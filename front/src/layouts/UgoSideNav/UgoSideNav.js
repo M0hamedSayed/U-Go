@@ -13,16 +13,18 @@ import logoFull from '../../assets/images/ugo-white.png';
 import sideNavData from './sideNavData';
 import { SideNavItem } from '../../components/SideNav/SideNavItem/SideNavItem';
 import { css } from '@emotion/css';
+import { useDispatch } from 'react-redux';
+import { sideNavToggle } from '../../Store/Slices/sideNavSlice';
 
 const UgoSideNav = () => {
     const [dir] = useI18next();
     const theme = useTheme();
     const drawer = useRef();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-    // const isTablet = useMediaQuery(theme.breakpoints.down("lg"));
+    const isTablet = useMediaQuery(theme.breakpoints.down("lg"));
     const [checkNavOpened, burgerBtnClicked, sideNavPosition, toggleDrawer] = useSideNav(drawer);
     const customDrawerSx = drawerSx(checkNavOpened, cssVariables, dir, isMobile);
-
+    const dispatch = useDispatch();
     return (
         <>
             <CssBaseline />
@@ -40,13 +42,18 @@ const UgoSideNav = () => {
                 onClose={toggleDrawer(false)}
                 onOpen={toggleDrawer(true)}
                 onMouseLeave={(isMobile || !burgerBtnClicked) ? () => { } : toggleDrawer(false)}
-                onMouseOver={(isMobile || !burgerBtnClicked) ? () => { } : toggleDrawer(true)}
+                onMouseOver={(isMobile || isTablet || !burgerBtnClicked) ? () => { } : toggleDrawer(true)}
 
             >
-                <div className={css([
-                    tw`px-4 fixed top-0 z-50`,
-                    { width: 'inherit' }
-                ])}>
+                <div
+                    className={css([
+                        tw`px-4 fixed top-0 z-50`,
+                        { width: 'inherit' }
+                    ])}
+                    onClick={() => {
+                        if (isTablet && !isMobile) dispatch(sideNavToggle(!checkNavOpened));
+                    }}
+                >
                     <div className={css([
                         tw`bg-primary w-full py-4 `
                         , {
@@ -71,7 +78,6 @@ const UgoSideNav = () => {
                                 },
                             )}
                         >
-                            {/* <img className='drop-shadow-2xl drop shadow-secondary' src={logo} alt='logo' width='100%' height='auto' /> */}
                         </IconButton>
                     </div>
                 </div>
@@ -95,7 +101,6 @@ const UgoSideNav = () => {
 
                     })}
                 </ul>
-                {/* <div className='shadow-md justify-start overflow-x-hidden bg-primary p-0'></div> */}
             </SwipeableDrawer >
         </>
 
