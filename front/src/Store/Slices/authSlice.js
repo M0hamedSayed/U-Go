@@ -4,14 +4,14 @@ import axiosAuth from './../../Network/Config/axiosAuth';
 export const login = createAsyncThunk('auth/login', async (body, thunkApi) => {
     const { rejectWithValue } = thunkApi;
     try {
-        console.log(body);
-        const api = await axiosAuth.post('/login', {
+        console.log({ ...body, username: 'Genom' });
+        const api = await axiosAuth.post('login', {
             phoneNumber: body.PhoneNumber,
             country: body.Country,
             password: body.Password,
-            mac_address: body?.mac_address
+            username: 'Genom'
         }, {
-            redirect: '/dashboard',
+            redirect: '/',
             withCredentials: 'true'
         });
         const data = await api.data;
@@ -25,8 +25,8 @@ export const login = createAsyncThunk('auth/login', async (body, thunkApi) => {
 export const checkAuth = createAsyncThunk('auth/refresh', async (body, thunkApi) => {
     const { rejectWithValue } = thunkApi;
     try {
-        const api = await axiosAuth.post('/refresh', {
-            mac_address: body.mac_address
+        const api = await axiosAuth.post('refresh', {
+
         }, {
             withCredentials: true
         }

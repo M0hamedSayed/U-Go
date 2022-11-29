@@ -6,7 +6,7 @@ import { useTheme } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
 import UgoNavbar from "../../layouts/UgoNavbar/UgoNavbar";
 import { MuiTheming } from "../../components/Shared/MuiTheming/MuiTheming";
-import MainContent from "../../layouts/MainContent/MainContent";
+import { Outlet } from "react-router-dom";
 
 const HomePage = () => {
     const burgerBtnStatus = useSelector((state) => state.sideNav.burgerBtnStatus);
@@ -37,7 +37,7 @@ const HomePage = () => {
                     },
                 ])}>
                     <UgoNavbar />
-                    <MainContent />
+                    <Outlet />
                 </div>
             </div>
 

@@ -2,7 +2,7 @@ const sideNavData = [
     {
         iconName: "dashboard",
         itemName: "dashboard",
-        target: "/dashboard"
+        target: "/"
     },
     {
         iconName: "analytics",
@@ -13,7 +13,7 @@ const sideNavData = [
     {
         iconName: "cities",
         itemName: "cities",
-        target: "/locations"
+        target: "/cities"
     },
     {
         iconName: "suppliers",

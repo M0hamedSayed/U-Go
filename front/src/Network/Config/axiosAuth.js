@@ -3,7 +3,9 @@ import { alertConfig } from "../../Services/sweetAlert";
 import { handleError } from "../../Store/Slices/authSlice";
 import store from "../../Store/store";
 const axiosAuth = axios.create({
-    baseURL: process.env.BASE_URL_BACK || "https://localhost:5000",
+    baseURL: process.env.BASE_URL_BACK ||
+        // "https://localhost:5000" ||
+        "https://genom-u-go.herokuapp.com/auth/",
 });
 //errorHandling(error.response.data.Error)
 axiosAuth.interceptors.request.use(

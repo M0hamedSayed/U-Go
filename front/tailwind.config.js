@@ -45,4 +45,12 @@ module.exports = {
     },
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    styled: true,
+    themes: false,
+    base: false,
+    utils: false,
+    logs: false,
+    rtl: false,
+  },
 }

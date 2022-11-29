@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
 import useI18next from "./useI18next";
 import { useSelector, useDispatch } from 'react-redux';
-import { sideNavOpened, sideNavToggle } from "../Store/Slices/sideNavSlice";
+import { sideNavToggle } from "../Store/Slices/sideNavSlice";
 
 const useSideNav = (drawer) => {
     const dispatch = useDispatch();

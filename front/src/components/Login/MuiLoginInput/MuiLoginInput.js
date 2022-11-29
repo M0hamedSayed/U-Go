@@ -6,6 +6,7 @@ import { Suspense, lazy, useState } from 'react';
 import { IconButton } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import loginInputStyle from './loginInputStyle';
+import LoaderSpinner from '../../Shared/LoaderSpinner/LoaderSpinner';
 const MuiPhoneNumber = lazy(() => import('material-ui-phone-number'));
 
 
@@ -19,7 +20,7 @@ const MuiLoginInput = ({ styleCustom, name, type, value, icon, onChange, onBlur,
     };
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<LoaderSpinner />}>
             <div className={`${styleCustom} px-3 mb-7`} >
                 {
                     !isPhoneInput &&

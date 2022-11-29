@@ -67,8 +67,14 @@ const LoginForm = () => {
                             mdiLockOff
                     }
                     value={formik.values.Password}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
+                    onChange={(e) => {
+                        formik.setFieldValue('Password', e.target.value);
+                        formik.touched.Password = true;
+                    }}
+                    onBlur={(e) => {
+                        formik.touched.Password = true;
+                        formik.handleBlur(e)
+                    }}
                     error={(formik.touched.Password && Boolean(formik.errors.Password))}
                     errorText={formik.touched.Password && formik.errors.Password}
                 />

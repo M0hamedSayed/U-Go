@@ -1,34 +1,24 @@
-<<<<<<< Updated upstream
-import React from 'react';
-=======
 import React, { Suspense } from 'react';
->>>>>>> Stashed changes
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-<<<<<<< Updated upstream
-=======
 import './i18n/i18n'
 import { Provider } from 'react-redux';
 import store from './Store/store';
 import { BrowserRouter } from 'react-router-dom';
->>>>>>> Stashed changes
+import LoaderSpinner from './components/Shared/LoaderSpinner/LoaderSpinner';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<<<<<<< Updated upstream
-    <App />
-=======
     <Provider store={store}>
-      <Suspense fallback="<div>loading....</div>">
+      <Suspense fallback={<LoaderSpinner />}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
       </Suspense>
     </Provider>
->>>>>>> Stashed changes
   </React.StrictMode>
 );
 

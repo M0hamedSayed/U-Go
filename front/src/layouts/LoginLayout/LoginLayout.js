@@ -1,6 +1,7 @@
 
 import { lazy, Suspense } from 'react';
 import LangIcon from '../../components/Shared/LangIcon/LangIcon';
+import LoaderSpinner from '../../components/Shared/LoaderSpinner/LoaderSpinner';
 import { MuiTheming } from '../../components/Shared/MuiTheming/MuiTheming';
 import ThemeToggle from '../../components/Shared/ThemeToggle/ThemeToggle';
 // import LoginForm from '../../containers/Login/LoginForm';
@@ -23,7 +24,7 @@ const LoginLayout = () => {
                 <LoginImg />
                 <div className="w-full lg:w-1/2 py-10 px-5 md:px-1 flex items-center justify-center z-10">
                     {/* <Outlet /> */}
-                    <Suspense fallback={<div>loading...</div>}>
+                    <Suspense fallback={<LoaderSpinner />}>
                         <LoginForm />
                     </Suspense>
                 </div>
